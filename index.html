@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <img src="assets/menu_icon.png" alt="Menu" class="menu-icon">
+            <div class="search-container">
+                <input type="text" placeholder="Quick find" class="search-box">
+                <img src="assets/search_icon.png" alt="Search icon" class="search-icon">
+            </div>
+            <div class="task-counter-group">
+                <img src="assets/check_icon.png" alt="Check" class="check-icon">
+                <span class="task-counter">30/5</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <img src="assets/inbox_icon.png" alt="Inbox" class="nav-icon">
+                    <span class="nav-text">Inbox</span>
+                    <span class="nav-count">5</span>
+                </li>
+                <li class="nav-item">
+                    <img src="assets/calendar_icon.png" alt="Today" class="nav-icon">
+                    <span class="nav-text">Today</span>
+                    <span class="nav-count">5</span>
+                </li>
+                <li class="nav-item">
+                    <img src="assets/upcoming_icon.png" alt="Upcoming" class="nav-icon">
+                    <span class="nav-text">Upcoming</span>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <h1>Inbox</h1>
+            <ul class="task-list">
+                <li class="task-item">
+                    <input type="checkbox" class="task-checkbox">
+                    <span class="task-text">Call Mom</span>
+                </li>
+                <li class="task-item">
+                    <input type="checkbox" class="task-checkbox">
+                    <span class="task-text">Buy the new issue of Scientific American</span>
+                </li>
+                <li class="task-item">
+                    <input type="checkbox" class="task-checkbox">
+                    <span class="task-text">Return the textbook to Josie</span>
+                </li>
+                <li class="task-item">
+                    <input type="checkbox" class="task-checkbox">
+                    <span class="task-text">Buy the new album by Rake</span>
+                </li>
+                <li class="task-item">
+                    <input type="checkbox" class="task-checkbox">
+                    <span class="task-text">Buy a gift card for Dad</span>
+                </li>
+            </ul>
+        </main>
+    </div>
+</body>
+</html>
