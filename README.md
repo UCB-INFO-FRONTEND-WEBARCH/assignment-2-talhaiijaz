@@ -308,9 +308,9 @@ This component calculates and displays statistics.
 Think about:
 - How to count total tasks (array length)
 - How to count completed tasks (use `.filter()`)
-- How to calculate active tasks (total - completed)
+- XXX OPTIONAL NO NEED TO SHOW ACTIVE COUNT ~~How to calculate active tasks (total - completed)~~
 
-Display these three numbers in your UI.
+Display these ~~three~~ two numbers in your UI.
 
 ### Filter Buttons
 
