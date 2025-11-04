@@ -313,6 +313,24 @@ body {
     color: white;
 }
 
+.edit-btn {
+    padding: 6px 12px;
+    background-color: transparent;
+    color: #2f6ec4;
+    border: 1px solid #2f6ec4;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    transition: all 0.2s;
+    margin-right: 8px;
+}
+
+.edit-btn:hover {
+    background-color: #2f6ec4;
+    color: white;
+}
+
 .empty-message {
     text-align: center;
     color: #7e7d79;

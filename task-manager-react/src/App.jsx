@@ -5,29 +5,26 @@ import TaskList from './components/TaskList';
 import './App.css';
 
 function App() {
-  // Load saved tasks from localStorage, or start with empty array
+  // Tasks state (persisted locally)
   const [tasks, setTasks] = useState(() => {
     const savedTasks = localStorage.getItem('tasks');
     return savedTasks ? JSON.parse(savedTasks) : [];
   });
   
-  // Keep track of which filter is active (all, active, or completed)
+  // Current filter: 'all' | 'active' | 'completed'
   const [filter, setFilter] = useState('all');
 
-  // Sidebar should be open by default on desktop, closed on mobile
   const [isSidebarOpen, setIsSidebarOpen] = useState(() => {
     return window.innerWidth > 480;
   });
 
-  // Track what the user types in the search box
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Save to localStorage whenever tasks change
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
 
-  // Add a new task to the list
+  // Add a task
   const addTask = (taskText) => {
     const newTask = {
       id: Date.now(),
@@ -37,30 +34,36 @@ function App() {
     setTasks([...tasks, newTask]);
   };
 
-  // Toggle between completed and not completed
+  // Mark complete/incomplete
   const toggleTask = (id) => {
     setTasks(tasks.map(task =>
       task.id === id ? { ...task, completed: !task.completed } : task
     ));
   };
 
-  // Remove a task from the list
+  // Delete a task
   const deleteTask = (id) => {
     setTasks(tasks.filter(task => task.id !== id));
   };
 
-  // Get the tasks we should show based on the current filter and search
+  // Edit task text (ignore empty)
+  const editTask = (id, newText) => {
+    const trimmed = newText.trim();
+    if (trimmed === '') return; // ignore empty edits
+    setTasks(tasks.map(task =>
+      task.id === id ? { ...task, text: trimmed } : task
+    ));
+  };
+
   const getFilteredTasks = () => {
     let filtered = tasks;
 
-    // First filter by completion status
     if (filter === 'active') {
       filtered = filtered.filter(task => !task.completed);
     } else if (filter === 'completed') {
       filtered = filtered.filter(task => task.completed);
     }
 
-    // Then filter by search if there's something typed
     if (searchQuery.trim() !== '') {
       filtered = filtered.filter(task =>
         task.text.toLowerCase().includes(searchQuery.toLowerCase())
@@ -154,6 +157,7 @@ function App() {
             tasks={filteredTasks}
             onToggle={toggleTask}
             onDelete={deleteTask}
+            onEdit={editTask}
           />
         </main>
       </div>

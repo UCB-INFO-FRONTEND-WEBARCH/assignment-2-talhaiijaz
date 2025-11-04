@@ -5,14 +5,11 @@ function TaskForm({ onAddTask }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Don't add empty tasks
     if (inputValue.trim() === '') {
       return;
     }
-    
     onAddTask(inputValue.trim());
-    setInputValue(''); // Clear the input field
+    setInputValue('');
   };
 
   return (

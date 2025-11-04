@@ -1,23 +1,20 @@
 function TaskCounter({ tasks, filter }) {
-  // Count up the different types of tasks
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter(task => task.completed).length;
   const activeTasks = totalTasks - completedTasks;
 
-  // Show different message depending on what filter is active
-  let displayMessage = '';
+  let counterText = '';
   if (filter === 'all') {
-    displayMessage = `Showing ${totalTasks} total tasks`;
+    counterText = `${totalTasks} tasks`;
   } else if (filter === 'active') {
-    displayMessage = `Showing ${activeTasks} active tasks`;
+    counterText = `${activeTasks} of ${totalTasks} tasks`;
   } else if (filter === 'completed') {
-    displayMessage = `Showing ${completedTasks} completed tasks`;
+    counterText = `${completedTasks} of ${totalTasks} tasks`;
   }
 
   return (
     <div className="task-counter-display">
-      <p>{displayMessage}</p>
-      <p>Total: {totalTasks} | Active: {activeTasks} | Completed: {completedTasks}</p>
+      <p>{counterText}</p>
     </div>
   );
 }
